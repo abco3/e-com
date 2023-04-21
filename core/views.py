@@ -231,7 +231,7 @@ class CheckoutView(View):
 #     return render(request, "shop.html", context)
 
 
-@login_required
+#@login_required
 def add_to_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
     order_item, created = OrderItem.objects.get_or_create(
@@ -260,7 +260,7 @@ def add_to_cart(request, slug):
     return redirect("core:order-summary")
 
 
-@login_required
+#@login_required
 def remove_from_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
     order_qs = Order.objects.filter(
@@ -289,7 +289,7 @@ def remove_from_cart(request, slug):
     return redirect("core:product", slug=slug)
 
 
-@login_required
+#@login_required
 def remove_single_item_from_cart(request, slug):
     item = get_object_or_404(Item, slug=slug)
     order_qs = Order.objects.filter(
