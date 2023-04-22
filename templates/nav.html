@@ -48,28 +48,20 @@
 							<li>
 								<a href="/shop/">Shop</a>
 							</li>
+							<li><a href="/category/IpadCase">Ipad Case</a></li><li><a href="/category/IphoneCase">Iphone Case</a></li>
 
-							{% categories %}
-
-							{% if request.user.is_authenticated %}
+							
 							<li>
-								<a href="{% url 'core:order-summary' %}">Cart<span class="badge badge-dark">{{ request.user|cart_item_count }}</span></a>
+								<a href="/order-summary/">Cart<span class="badge badge-dark">1</span></a>
 							</li>
 							<li>
-								<a href="{% url 'account_logout' %}">Logout</a>
+								<a href="/accounts/logout/">Logout</a>
 							</li>
-							{% else %}
-							<li>
-								<a href="#">Login</a>
-								<ul class="sub_menu">
-									<li><a href="{% url 'account_login' %}">Login</a></li>
-									<li><a href="{% url 'account_signup' %}">SignUp</a></li>
-								</ul>
-							</li>
-							{% endif %}
+							
 						</ul>
 					</nav>
 				</div>
+
 
 				<!-- Header Icon -->
 				<div class="header-icons">
@@ -142,9 +134,9 @@
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										View Cart
-									</a>
+									<li>
+										<a href="/order-summary/"><span class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</span></a>
+									</li>
 								</div>
 
 								<div class="header-cart-wrapbtn">
@@ -240,14 +232,14 @@
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										View Cart
-									</a>
+									<li>
+										<a href="/order-summary/"><span class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">View Cart</span></a>
+									</li>
 								</div>
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="checkout.html">
+									<a href="/checkout/">
 										Check Out
 									</a>
 								</div>
