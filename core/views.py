@@ -111,7 +111,8 @@ class HomeView(ListView):
     context_object_name = 'items'
 
 
-class OrderSummaryView(LoginRequiredMixin, View):
+# class OrderSummaryView(LoginRequiredMixin, View):
+class OrderSummaryView(View):
     def get(self, *args, **kwargs):
         try:
             order = Order.objects.get(user=self.request.user, ordered=False)
