@@ -1,4 +1,4 @@
-# Django-Ecommerce
+<!-- # Django-Ecommerce
 
 Ecommerce website built with Django 2.2.3, Python 3.7.3, and AWS
 
@@ -61,5 +61,5 @@ http://djangoecommerce.pythonanywhere.com
 
 # HTML Template
 
-https://colorlib.com/etc/fashe/index.html
+https://colorlib.com/etc/fashe/index.html -->
 
