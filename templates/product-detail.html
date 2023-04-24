@@ -27,21 +27,21 @@
 				<div class="wrap-slick3-dots"></div>
 
 				<div class="slick3">
-					<div class="item-slick3" data-thumb="/media/item-10.webp">
+					<div class="item-slick3" data-thumb="{{item.image.url}}">
 						<div class="wrap-pic-w">
-							<img src="/media/item-10.webp" alt="Aaa">
+							<img src="{{item.image.url}}" alt="Aaa">
 						</div>
 					</div>
 
-					<div class="item-slick3" data-thumb="/static/images/detail_ipad/depad1_1.jpg">
+					<div class="item-slick3" data-thumb="{{item.image2.url}}">
 						<div class="wrap-pic-w">
-							<img src="/static/images/detail_ipad/depad1_1.jpg" alt="IMG-PRODUCT">
+							<img src="{{item.image2.url}}" alt="IMG-PRODUCT">
 						</div>
 					</div>
 
-					<div class="item-slick3" data-thumb="/static/images/detail_ipad/depad1_2.jpg">
+					<div class="item-slick3" data-thumb="{{item.image3.url}}">
 						<div class="wrap-pic-w">
-							<img src="/static/images/detail_ipad/depad1_2.jpg" alt="IMG-PRODUCT">
+							<img src="{{item.image3.url}}" alt="IMG-PRODUCT">
 						</div>
 					</div>
 				</div>
@@ -50,18 +50,18 @@
 
 		<div class="w-size14 p-t-30 respon5">
 			<h4 class="product-detail-name m-text16 p-b-13">
-				Aaa
+				{{item.title}}
 			</h4>
 
 			
 			
 							<span class="m-text17">
-								$10.0
+								{{item.price}}
 							</span>
 							
 
 			<p class="s-text8 p-t-10">
-				Aaa Short Description
+				{{item.description_short}}
 			</p>
 
 			<!--  -->

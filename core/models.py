@@ -61,6 +61,8 @@ class Item(models.Model):
     description_short = models.CharField(max_length=50)
     description_long = models.TextField()
     image = models.ImageField()
+    image2 = models.ImageField(null=True,blank=True)
+    image3 = models.ImageField(null=True,blank=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
