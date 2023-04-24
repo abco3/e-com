@@ -122,37 +122,47 @@
 			<ul class="main-menu">
 				<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 					<span class="topbar-child1">
-						pre-order cute staff from japan
+						♡ Pre-order cute staff from South Korea ♡
 					</span>
 				</li>
 
 				<li class="item-topbar-mobile p-l-10">
 					<div class="topbar-social-mobile">
-						<a href="#" class="topbar-social-item fab fa-instagram"></a>
-						<a href="#" class="topbar-social-item fab fa-twitter"></a>
+						<a href="https://twitter.com/fluxxyffshop" class="topbar-social-item fab fa-twitter"></a>
 					</div>
 				</li>
 
 				<li class="item-menu-mobile">
-					<a href="/">Home</a>
-				</li>
+					<li>
+						<a href="/">Home</a>
 
-				<li class="item-menu-mobile">
-					<a href="/shop">Shop</a>
-				</li>
+					</li>
 
-				<li class="item-menu-mobile"><a href="/category/IpadCase">Ipad Case</a></li><li class="item-menu-mobile"><a href="/category/IphoneCase">Iphone Case</a></li>
+					<li>
+						<a href="/shop/">Shop</a>
+					</li>
 
-				
-				<li class="item-menu-mobile">
-					<a href="/order-summary/">Cart<span class="badge badge-dark">1</span></a>
-				</li>
-				<li class="item-menu-mobile">
-					<a href="/accounts/logout/">Logout</a>
-				</li>
-				
+					<li>
+						<a href="/category/IpadCase">Ipad Case</a>
+					</li>
+					
+					<li>
+						<a href="/category/IphoneCase">Iphone Case</a>
+					</li>
+	
+					<li>
+						<a href="#">Login</a>
+						<ul class="sub_menu">
+							<li><a href="{% url 'account_login' %}">Login</a></li>
+							<li><a href="{% url 'account_signup' %}">SignUp</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="/accounts/logout/">Logout</a>
+					</li>
+					
+				</ul>
+			</nav>
+		</div>
 
-			</ul>
-		</nav>
-	</div>
 </header>
