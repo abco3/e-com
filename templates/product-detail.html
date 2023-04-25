@@ -15,7 +15,7 @@
 	</a>
 
 	<span class="s-text17">
-		Aaa
+		{{item.title}}
 	</span>
 </div>
 
@@ -103,8 +103,8 @@
 							
 						</div>
 						
-						<a href="/add-to-cart/aaa/" class="btn btn-primary" style="margin: 2px;">Add to Cart</a>
-						<a href="/remove-from-cart/aaa/" class="btn btn-outline-dark" style="margin: 2px;">Remove from Cart</a>
+						<a href="{% url 'core:add-to-cart' item.slug %}" class="btn btn-primary" style="margin: 2px;">Add to Cart</a>
+						<a href="{% url 'core:remove-from-cart' item.slug %}" class="btn btn-outline-dark" style="margin: 2px;">Remove from Cart</a>
 					</div>
 				</div>
 			</div>
