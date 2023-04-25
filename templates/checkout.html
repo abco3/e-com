@@ -124,10 +124,6 @@
             <td colspan="5"><b>Order Total : </b></td>
             <td><b>${{ object.get_total }}</b></td>
           </tr> -->
-          <li class="list-group-item d-flex justify-content-between">
-            <span>Total (Bath)</span>
-            <strong>฿{{ order.get_total }}</strong>
-          </li>
           <form>
             <div class="form-group">
               <label><input type="hidden" พร้อมเพย์ ไอดี Promptpay ID></label>
@@ -137,7 +133,8 @@
             </div>
             <div class="form-group error">
               <label><input type="hidden" Order Total></label>
-              <input type="้hidden"  step="0.01" class="form-control" id="amount" placeholder="1000.00 (Please enter the correct amount.)">
+              <input type="้hidden" class="list-group-item d-flex justify-content-between"><span> Total (Bath)</span> 
+              <strong> ฿ {{ order.get_total }} </strong>
             </div>
             <div class="form-group error">
               <label><input type="hidden" ชื่อบัญชี></label>
