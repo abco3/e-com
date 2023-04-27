@@ -24,7 +24,8 @@
             <td>
 			<img src="{{ order_item.item.image.url }}" style="width: 130px;"> 
             </td>
-            <td>{{ order_item.item.title }}</td>
+            <!-- เอาชื่อรุ่นมาใส่ด้วย -->
+            <td>{{ order_item.item.title }}</td> 
             <td>{{ order_item.item.price }}</td>
             <td>
             	<a href="{% url 'core:remove-single-item-from-cart' order_item.item.slug %}"><i class="fas fa-minus mr-3"></i></a>
