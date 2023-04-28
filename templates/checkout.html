@@ -6,6 +6,7 @@
 
 
    <style>
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -36,7 +37,6 @@
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-
     </style>
   
  
@@ -56,6 +56,21 @@
       <h4 class="mb-3" style=" margin-top: 26px;">Billing address</h4>
       <form method="POST" class="needs-validation" novalidate>
       	{% csrf_token %}
+        <div class="mb-3">
+          <label for="">ชื่อ</label>
+          {{ form.first_name }}
+        </div>
+
+        <div class="mb-3">
+          <label for="">นามสกุล</label>
+          {{ form.last_name }}
+        </div>
+
+        <div class="mb-3">
+          <label for="08xxxxxxxx">Phone number</label>
+          {{ form.phone_number }}
+        </div>
+
         <div class="mb-3">
           <label for="address">Address</label>
           {{ form.street_address }}

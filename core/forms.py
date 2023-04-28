@@ -9,6 +9,16 @@ PAYMENT_CHOICES = (
 
 
 class CheckoutForm(forms.Form):
+    first_name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control'
+    }))
+    phone_number = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': '08xxxxxxxx',
+        'class': 'form-control'
+    }))
     street_address = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': '1234 Main St',
         'class': 'form-control'
