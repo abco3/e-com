@@ -134,6 +134,15 @@ class ItemDetailView(DetailView):
     model = Item
     template_name = "product-detail.html"
 
+    def get_object(self, queryset=None):
+        slug = self.kwargs.get('slug')
+        queryset = Item.objects.filter(slug=slug)
+        if queryset.exists():
+            return queryset.first()
+        else:
+            raise Http404("Item does not exist")
+
+
 
 # class CategoryView(DetailView):
 #     model = Category
