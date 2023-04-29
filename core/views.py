@@ -159,6 +159,16 @@ class CategoryView(View):
             'category_image': category.image
         }
         return render(self.request, "category.html", context)
+    
+    # def select_mobile_phone(request):
+    #     if request.method == 'POST':
+    #         form = MobilePhoneForm(request.POST)
+    #         if form.is_valid():
+    #             selected_model = form.cleaned_data['model']
+    #             # Do something with the selected model, such as save it to a database
+    #     else:
+    #         form = MobilePhoneForm()
+    #     return render(request, 'select_mobile_phone.html', {'form': form})
 
 
 class CheckoutView(View):
@@ -392,12 +402,12 @@ class RequestRefundView(View):
                 messages.info(self.request, "This order does not exist")
                 return redirect("core:request-refund")
             
-def select_mobile_phone(request):
-    if request.method == 'POST':
-        form = MobilePhoneForm(request.POST)
-        if form.is_valid():
-            selected_model = form.cleaned_data['model']
-            # Do something with the selected model, such as save it to a database
-    else:
-        form = MobilePhoneForm()
-    return render(request, 'select_mobile_phone.html', {'form': form})
+# def select_mobile_phone(request):
+#     if request.method == 'POST':
+#         form = MobilePhoneForm(request.POST)
+#         if form.is_valid():
+#             selected_model = form.cleaned_data['model']
+#             # Do something with the selected model, such as save it to a database
+#     else:
+#         form = MobilePhoneForm()
+#     return render(request, 'select_mobile_phone.html', {'form': form})
