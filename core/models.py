@@ -155,10 +155,10 @@ class Order(models.Model):
 class BillingAddress(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    phone_number = models.CharField(max_length=10)
-    street_address = models.CharField(max_length=100)
+    first_name = models.CharField(max_length=50, null=True)
+    last_name = models.CharField(max_length=50, null=True)
+    phone_number = models.CharField(max_length=10, null=True)
+    street_address = models.CharField(max_length=100, null=True)
     apartment_address = models.CharField(max_length=100)
     country = CountryField(multiple=False)
     zip = models.CharField(max_length=100)
@@ -199,3 +199,6 @@ class Refund(models.Model):
 
     def __str__(self):
         return f"{self.pk}"
+
+class MobilePhone(models.Model):
+    model = models.CharField(max_length=50)

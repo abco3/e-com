@@ -53,3 +53,15 @@ class RefundForm(forms.Form):
         'rows': 4
     }))
     email = forms.EmailField()
+
+    from django import forms
+from .models import MobilePhone
+
+class MobilePhoneForm(forms.ModelForm):
+    class Meta:
+        model = MobilePhone
+        fields = ['model']
+        widgets = {
+            'model': forms.Select(attrs={'class': 'form-control'}),
+        }
+
