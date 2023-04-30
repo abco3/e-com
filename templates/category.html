@@ -25,7 +25,11 @@
 	<!-- {% if category_image %}
 		<img src="{{ category_image.url }}" alt="{{ category_title }}" />
 	{% endif %} -->
-
+<section>
+{% if category_banner %}
+	<img src="{{ category_banner.url }}" alt="{{category_title}}"/>
+{% endif %}
+</section>
 
 	<!-- Content page -->
 	<section class="bgwhite p-t-55 p-b-65">
