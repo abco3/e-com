@@ -39,7 +39,6 @@ class Category(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField()
-    image2 = models.ImageField(null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):

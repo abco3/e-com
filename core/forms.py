@@ -31,6 +31,10 @@ class CheckoutForm(forms.Form):
         'class': 'custom-select d-block w-100'
 
     }))
+    province = forms.CharField(required=False, widget=forms.TextInput(attrs={
+        'class': 'custom-select d-block w-100'
+
+    }))
     zip = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control'
     }))
