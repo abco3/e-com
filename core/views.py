@@ -8,7 +8,7 @@ from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, MobilePhoneForm
-from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon, Refund, Category
+from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon, Refund, Category, MobilePhone
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -401,13 +401,13 @@ class RequestRefundView(View):
             except ObjectDoesNotExist:
                 messages.info(self.request, "This order does not exist")
                 return redirect("core:request-refund")
-            
-# def select_mobile_phone(request):
-#     if request.method == 'POST':
-#         form = MobilePhoneForm(request.POST)
-#         if form.is_valid():
-#             selected_model = form.cleaned_data['model']
-#             # Do something with the selected model, such as save it to a database
-#     else:
-#         form = MobilePhoneForm()
-#     return render(request, 'select_mobile_phone.html', {'form': form})
+              
+    # def select_mobile_phone(request):
+    #     if request.method == 'POST':
+    #         form = MobilePhoneForm(request.POST)
+    #         if form.is_valid():
+    #             selected_model = form.cleaned_data['model']
+    #             # Do something with the selected model, such as save it to a database
+    #     else:
+    #         form = MobilePhoneForm()
+    #     return render(request, 'select_mobile_phone.html', {'form': form})
