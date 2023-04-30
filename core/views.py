@@ -156,7 +156,8 @@ class CategoryView(View):
             'object_list': item,
             'category_title': category,
             'category_description': category.description,
-            'category_image': category.image
+            'category_image': category.image,
+            'category_banner' : category.image2
         }
         return render(self.request, "category.html", context)
     
