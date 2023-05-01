@@ -111,26 +111,29 @@
         </div>
         <tr>
           <td>จังหวัด : </td>
-          <td><select id="province">
+          <td><select class="custom-select d-block w-100" id="province">
               <option>- กรุณาเลือกจังหวัด -</option>
             </select></td>
         </tr>
         <tr>
           <td>อำเภอ : </td>
-          <td><select id="amphur">
+          <td><select class="custom-select d-block w-100" id="amphur">
               <option>- กรุณาเลือกอำเภอ -</option>
             </select></td>
         </tr>
         <tr>
           <td>ตำบล : </td>
-          <td><select id="district">
+          <td><select class="custom-select d-block w-100" id="district">
               <option>- กรุณาเลือกตำบล -</option>
             </select></td>
         </tr>
-        <tr>
-          <td>รหัสไปรษณีย์ : </td>
-          <td><input id="postcode"/></td>
-        </tr>
+        <div class="mb-3">
+          <label for="zip">รหัสไปรษณีย์ :</label>
+          {{ form.zip }}
+          <div class="invalid-feedback">
+            รหัสไปรษณีย์
+          </div>
+        </div>
         <hr class="mb-4">
         <div class="custom-control custom-checkbox">
           <input {% if form.same_shipping_address.value %}checked{% endif %} type="checkbox" class="custom-control-input" id="same_shipping_address">

@@ -157,11 +157,11 @@ class BillingAddress(models.Model):
                              on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50, null=True)
     last_name = models.CharField(max_length=50, null=True)
-    phone_number = models.CharField(max_length=10, null=True)
+    phone_number = models.IntegerField(max_length=10, null=True)
     street_address = models.CharField(max_length=100, null=True)
     apartment_address = models.CharField(max_length=100)
     country = CountryField(multiple=False)
-    zip = models.CharField(max_length=5)
+    zip = models.IntegerField(max_length=5)
     address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
     default = models.BooleanField(default=False)
 

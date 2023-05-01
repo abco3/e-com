@@ -15,7 +15,7 @@ class CheckoutForm(forms.Form):
     last_name = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control'
     }))
-    phone_number = forms.CharField(widget=forms.TextInput(attrs={
+    phone_number = forms.IntegerField(widget=forms.TextInput(attrs={
         'placeholder': '08xxxxxxxx',
         'class': 'form-control'
     }))
@@ -35,7 +35,7 @@ class CheckoutForm(forms.Form):
         'class': 'custom-select d-block w-100'
 
     }))
-    zip = forms.CharField(widget=forms.TextInput(attrs={
+    zip = forms.IntegerField(widget=forms.TextInput(attrs={
         'class': 'form-control'
     }))
     same_shipping_address = forms.BooleanField(required=False)
