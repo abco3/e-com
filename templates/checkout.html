@@ -4,7 +4,6 @@
 
 {% block content %}
 
-
    <style>
 
       .bd-placeholder-img {
@@ -165,132 +164,119 @@
             <td colspan="5"><b>Order Total : </b></td>
             <td><b>${{ object.get_total }}</b></td>
           </tr> -->
-          <form>
-            <div class="form-group">
-              <label><input type="hidden" พร้อมเพย์ ไอดี Promptpay ID></label>
-              <input type="hidden" value="0863412381" pattern="\d*" class="form-control" id="pp-id"
-                placeholder="เบอร์มือถือ, รหัสประจำตัวประชาชน, TAX ID, e-Wallet"
-                onKeyPress="if(this.value.length==15) return false;">
-            </div>
-            <div class="form-group error">
-              <label><input type="hidden" Order Total></label>
-              <input type="้hidden" class="list-group-item d-flex justify-content-between"><span> Total (Bath)</span> 
-              <strong> ฿ {{ order.get_total }} </strong>
-            </div>
-            <div class="form-group error">
-              <label><input type="hidden" ชื่อบัญชี></label>
-              <input type="hidden" value="พิไลลักษณ์ รอดผล" step="0.01" class="form-control" id="acname" placeholder="นางสาวพร้อมเพย์ (Optional จะใส่หรือไม่ก็ได้ ชื่อที่ใส่จะแสดงอยู่ด้านล่างของ QR Code)">
-            </div>
-            <button type="button" class="btn btn-primary btn-lg" id="myBtn">QR Code</button>
-          </form>
-      </section>
+            <form>
+                <input type="hidden" value="0863412381" pattern="\d*" class="form-control" id="pp-id"
+                  onKeyPress="if(this.value.length==15) return false;" required>
+                <input type="hidden" value="{{ order.get_total }}" step="0.01" class="form-control" id="amount">
+                <input type="hidden" value="นางสาวพิไลลักษณ์ รอดผล" step="0.01" class="form-control" id="acname">
+              <button type="button" class="btn btn-primary btn-lg" id="myBtn">PromptPay QR</button>
+            </form>
 
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-            aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">QR Code รับเงิน</h4>
-      </div>
-      <div class="modal-body" style="margin: auto;">
-        <img src="img/PromptPay-logo.jpg" alt="พร้อมเพย์" style="max-width: 250px;margin-bottom: 10px;">
-        <div id="qrcode" style="width:250px; height:250px;"></div>
-        หมายเลขพร้อมเพย์
-        <div id="pp-id-show" style="text-align: center; margin-top: 10px;"></div>
-        <div id="amount-show" style="text-align: center;"></div>
-        <div id="acname-show" style="text-align: center;"></div>
-        <div id="info-show" style="text-align: center; font-size: 70%; margin-top: 10px; color: #A6A6A6;">
-          
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">QR Code รับเงิน</h4>
+        </div>
+        <div class="modal-body" style="margin: auto;">
+          <img src="{% static 'images/PromptPay-logo.jpg' %}" alt="พร้อมเพย์" style="max-width: 250px;margin-bottom: 10px;">
+          <div id="qrcode" style="width:250px; height:250px;"></div>
+          หมายเลขพร้อมเพย์
+          <div id="pp-id-show" style="text-align: center; margin-top: 10px;"></div>
+          <div id="amount-show" style="text-align: center;"></div>
+          <div id="acname-show" style="text-align: center;"></div>
+          <div id="info-show" style="text-align: center; font-size: 70%; margin-top: 10px; color: #A6A6A6;">
+            
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default close-button" data-dismiss="modal">Close</button>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default close-button" data-dismiss="modal">Close</button>
-      </div>
-      </div>
-      </div>
-      </div>
+    </div>
+  </div>
 
-  
-      <script type="text/javascript" src="../static_in_env/js/jquery-3.4.1.min.js"></script>
-      <script type="text/javascript" src="../static_in_env/js/qrcode.min.js"></script>
-      <script type="text/javascript" src="../static_in_env/js/promptpay.js"></script>
-    
-      <script src="../static_in_env/vendor/popper/popper.min.js"></script>
-      <script src="../static_in_env/vendor/bootstrap/js/bootstrap.min.js"></script>
-      <script src="../static_in_env/vendor/jquery-easing/jquery.easing.min.js"></script>
-    
-      <script src="../static_in_env/js/new-age.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/qrcode.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/promptpay.js' %}"></script>
 
-      <script type="text/javascript">
-      var qrcode = new QRCode(document.getElementById("qrcode"), {
+  <script src="{% static 'vendor/popper/popper.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+  <script src="{% static 'js/new-age.min.js' %}"></script>
+
+  <script type="text/javascript">
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
       width: 250,
       height: 250,
       correctLevel: QRCode.CorrectLevel.L
-      });
+    });
 
-      function makeCode() {
+    function makeCode() {
       var ppID = document.getElementById("pp-id").value;
       var amount = parseFloat(document.getElementById("amount").value);
       var acname = document.getElementById("acname").value;
       if (!ppID) {
-      ppID = "promptpay.github.io";
+        ppID = "promptpay.github.io";
       }
 
       qrcode.makeCode(generatePayload(ppID, amount, acname));
       $("#pp-id-show").html(ppID);
       $("#acname-show").html(acname);
       if (amount > 0.0) {
-      $("#amount-show").html(Number(amount.toFixed(2)).toLocaleString() + " บาท");
+        $("#amount-show").html(Number(amount.toFixed(2)).toLocaleString() + " บาท");
       } else {
-      $("#amount-show").html("");
+        $("#amount-show").html("");
       }
-      }
+    }
 
-      $(document).ready(function () {
+    $(document).ready(function () {
       $("#myBtn").click(function () {
-      var ppID = document.getElementById("pp-id").value;
-      var amount = parseFloat(document.getElementById("amount").value);
-      var acname = document.getElementById("acname").value;
-      if (ppID == '') {
-        $('#pp-id').addClass('is-invalid')
-      } else {
-        $('#amount').removeClass('is-invalid')
-        $('#pp-id').removeClass('is-invalid')
-        $('#acname').removeClass('is-invalid')
-        makeCode();
-        $("#pp-id").
-        on("blur", function () {
+        var ppID = document.getElementById("pp-id").value;
+        var amount = parseFloat(document.getElementById("amount").value);
+        var acname = document.getElementById("acname").value;
+        if (ppID == '') {
+          $('#pp-id').addClass('is-invalid')
+        } else {
+          $('#amount').removeClass('is-invalid')
+          $('#pp-id').removeClass('is-invalid')
+          $('#acname').removeClass('is-invalid')
           makeCode();
-        }).
-        on("keydown", function (e) {
-          if (e.keyCode == 13) {
+          $("#pp-id").
+          on("blur", function () {
             makeCode();
-          }
-        });
-        $("#amount").
-        on("blur", function () {
-          makeCode();
-        }).
-        on("keydown", function (e) {
-          if (e.keyCode == 13) {
+          }).
+          on("keydown", function (e) {
+            if (e.keyCode == 13) {
+              makeCode();
+            }
+          });
+          $("#amount").
+          on("blur", function () {
             makeCode();
-          }
-        });
-        $("#acname").
-        on("blur", function () {
-          makeCode();
-        }).
-        on("keydown", function (e) {
-          if (e.keyCode == 13) {
+          }).
+          on("keydown", function (e) {
+            if (e.keyCode == 13) {
+              makeCode();
+            }
+          });
+          $("#acname").
+          on("blur", function () {
             makeCode();
-          }
-        });
-        $("#myModal").modal();
-      }
+          }).
+          on("keydown", function (e) {
+            if (e.keyCode == 13) {
+              makeCode();
+            }
+          });
+          $("#myModal").modal();
+        }
       });
-      });
-      </script>
+    });
+  </script>
   
         <hr class="mb-4">
         <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
@@ -300,7 +286,7 @@
     {% include "order_snippet.html" %}
 
   </div>
-
+<!-- 
   <footer class="my-5 pt-5 text-muted text-center text-small">
     <p class="mb-1">&copy; 2017-2019 Company Name</p>
     <ul class="list-inline">
@@ -308,6 +294,6 @@
       <li class="list-inline-item"><a href="#">Terms</a></li>
       <li class="list-inline-item"><a href="#">Support</a></li>
     </ul>
-  </footer>
+  </footer> -->
 </div>
 {% endblock content %}
