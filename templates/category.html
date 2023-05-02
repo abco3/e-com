@@ -108,6 +108,7 @@
 					<!-- Product -->
 					<div class="row">
 						{% for item in object_list %}
+						<!-- <a href="{{item.get_absolute_url}}"> -->
 						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
 							<!-- Block2 -->
 							<a href="{{item.get_absolute_url}}">
@@ -119,7 +120,7 @@
 
 										<div class="block2-btn-addcart w-size1 trans-0-4">
 											<!-- Button -->
-											<a href="{% url 'core:add-to-cart' item.slug %}">
+											<!-- <a href="{% url 'core:add-to-cart' item.slug %}"> -->
 											<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
 												Add to Cart
 											</button>
