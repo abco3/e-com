@@ -49,14 +49,15 @@ class AddressAdmin(admin.ModelAdmin):
     list_display = [
         'user',
         'street_address',
-        'apartment_address',
-        'country',
+        'province',
+        'amphur',
+        'tambol',
         'zip',
         'address_type',
         'default'
     ]
-    list_filter = ['default', 'address_type', 'country']
-    search_fields = ['user', 'street_address', 'apartment_address', 'zip']
+    list_filter = ['default', 'address_type', 'province']
+    search_fields = ['user', 'street_address', 'amphur', 'tambol', 'zip']
 
 
 def copy_items(modeladmin, request, queryset):

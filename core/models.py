@@ -2,8 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.db.models import Sum
 from django.shortcuts import reverse
-from django_countries.fields import CountryField
-from multiselectfield import MultiSelectField
+
 
 # Create your models here.
 CATEGORY_CHOICES = (
@@ -165,11 +164,9 @@ class BillingAddress(models.Model):
     last_name = models.CharField(max_length=50, null=True)
     phone_number = models.CharField(max_length=10, null=True)
     street_address = models.CharField(max_length=100, null=True)
-    apartment_address = models.CharField(max_length=100)
-    country = CountryField(multiple=False)
     province = models.CharField(max_length=50, choices = PROVINCE_CHOICES,default = '1')
-    # amphur = models.CharField(choices=
-    # tambol = models.CharField(choices=
+    amphur = models.CharField(max_length=50, null=True)
+    tambol = models.CharField(max_length=50, null=True)
     zip = models.CharField(max_length=5)
     address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
     default = models.BooleanField(default=False)

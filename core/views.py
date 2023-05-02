@@ -196,10 +196,11 @@ class CheckoutView(View):
             print(self.request.POST)
             if form.is_valid():
                 street_address = form.cleaned_data.get('street_address')
-                apartment_address = form.cleaned_data.get('apartment_address')
                 country = form.cleaned_data.get('country')
                 zip = form.cleaned_data.get('zip')
                 province = form.cleaned_data.get('province')
+                amphur = form.cleaned_data.get('amphur')
+                tambol = form.cleaned_data.get('tambol')
                 # add functionality for these fields
                 # same_shipping_address = form.cleaned_data.get(
                 #     'same_shipping_address')
@@ -208,8 +209,8 @@ class CheckoutView(View):
                 billing_address = BillingAddress(
                     user=self.request.user,
                     street_address=street_address,
-                    apartment_address=apartment_address,
-                    country=country,
+                    amphur=amphur,
+                    tambol=tambol,
                     zip=zip,
                     province=province,
                     address_type='B'
