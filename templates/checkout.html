@@ -76,12 +76,8 @@
         </div>
 
         <div class="mb-3">
-          <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-          {{ form.apartment_address }}
-        </div>
-        <div class="mb-3">
           <label>จังหวัด</label>
-            <select name="province" id="province" required="required" class="form-control" required="required">
+            <select name="province" id="province" required="required" class="form-control" required data-validation-required-message="กรุณาระบุจังหวัด" placeholder="กรุณาระบุจังหวัด">
               <option value="กระบี่">กระบี่</option>
               <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
               <option value="กาญจนบุรี">กาญจนบุรี</option>
