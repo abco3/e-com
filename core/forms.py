@@ -21,7 +21,7 @@ class CheckoutForm(forms.Form):
         'class': 'form-control'
     }))
     street_address = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': '1234 Main St',
+        'placeholder': '1234 หมู่ x ถนน xxxx',
         'class': 'form-control'
     }))
     province = forms.CharField(widget=forms.TextInput(attrs={
