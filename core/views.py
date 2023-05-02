@@ -156,7 +156,8 @@ class CategoryView(View):
             'object_list': item,
             'category_title': category,
             'category_description': category.description,
-            'category_image': category.image
+            'category_image': category.image,
+            'category_banner' : category.banner
         }
         return render(self.request, "category.html", context)
     
@@ -198,6 +199,7 @@ class CheckoutView(View):
                 apartment_address = form.cleaned_data.get('apartment_address')
                 country = form.cleaned_data.get('country')
                 zip = form.cleaned_data.get('zip')
+                province = form.cleaned_data.get('province')
                 # add functionality for these fields
                 # same_shipping_address = form.cleaned_data.get(
                 #     'same_shipping_address')
@@ -209,6 +211,7 @@ class CheckoutView(View):
                     apartment_address=apartment_address,
                     country=country,
                     zip=zip,
+                    province=province,
                     address_type='B'
                 )
                 billing_address.save()

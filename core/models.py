@@ -3,6 +3,7 @@ from django.db import models
 from django.db.models import Sum
 from django.shortcuts import reverse
 from django_countries.fields import CountryField
+from multiselectfield import MultiSelectField
 
 # Create your models here.
 CATEGORY_CHOICES = (
@@ -23,6 +24,10 @@ ADDRESS_CHOICES = (
     ('S', 'Shipping'),
 )
 
+PROVINCE_CHOICES = (
+    ("กรุงเทพมหานคร","กรุงเทพมหานคร"), ("กาญจนบุรี","กาญจนบุรี"), ("กาฬสินธุ์","กาฬสินธุ์"), ("กำแพงเพชร","กำแพงเพชร"), ("ขอนแก่น","ขอนแก่น"), ("จันทบุรี","จันทบุรี"), ("ฉะเชิงเทรา","ฉะเชิงเทรา"), ("ชลบุรี","ชลบุรี"), ("ชัยนาท","ชัยนาท"), ("ชัยภูมิ","ชัยภูมิ"), ("ชุมพร","ชุมพร"), ("เชียงราย","เชียงราย"), ("เชียงใหม่","เชียงใหม่"), ("ตรัง","ตรัง"), ("ตราด","ตราด"), ("ตาก","ตาก"), ("นครนายก","นครนายก"), ("นครปฐม","นครปฐม"), ("นครพนม","นครพนม"), ("นครราชสีมา","นครราชสีมา"), ("นครศรีธรรมราช","นครศรีธรรมราช"), ("นครสวรรค์","นครสวรรค์"), ("นนทบุรี","นนทบุรี"), ("นราธิวาส","นราธิวาส"), ("น่าน","น่าน"), ("บึงกาฬ","บึงกาฬ"), ("บุรีรัมย์","บุรีรัมย์"), ("ปทุมธานี","ปทุมธานี"), ("ประจวบคีรีขันธ์","ประจวบคีรีขันธ์"), ("ปราจีนบุรี","ปราจีนบุรี"), ("ปัตตานี","ปัตตานี"), ("พระนครศรีอยุธยา","พระนครศรีอยุธยา"), ("พะเยา","พะเยา"), ("พังงา","พังงา"), ("พัทลุง","พัทลุง"), ("พิจิตร","พิจิตร"), ("พิษณุโลก","พิษณุโลก"), ("เพชรบุรี","เพชรบุรี"), ("เพชรบูรณ์","เพชรบูรณ์"), ("แพร่","แพร่"), ("ภูเก็ต","ภูเก็ต"), ("มหาสารคาม","มหาสารคาม"), ("มุกดาหาร","มุกดาหาร"), ("แม่ฮ่องสอน","แม่ฮ่องสอน"), ("ยโสธร","ยโสธร"), ("ยะลา","ยะลา"), ("ร้อยเอ็ด","ร้อยเอ็ด"), ("ระนอง","ระนอง"), ("ระยอง","ระยอง"), ("ราชบุรี","ราชบุรี"), ("ลพบุรี","ลพบุรี"), ("เลย","เลย"), ("ลำปาง","ลำปาง"), ("ลำพูน","ลำพูน"), ("ศรีสะเกษ","ศรีสะเกษ"), ("สกลนคร","สกลนคร"), ("สงขลา","สงขลา"), ("สตูล","สตูล"), ("สมุทรปราการ","สมุทรปราการ"), ("สมุทรสงคราม","สมุทรสงคราม"), ("สมุทรสาคร","สมุทรสาคร"), ("สระแก้ว","สระแก้ว"), ("สระบุรี","สระบุรี"), ("สิงห์บุรี","สิงห์บุรี"), ("สุโขทัย","สุโขทัย"), ("สุพรรณบุรี","สุพรรณบุรี"), ("สุราษฎร์ธานี","สุราษฎร์ธานี"), ("สุรินทร์","สุรินทร์"), ("หนองคาย","หนองคาย"), ("หนองบัวลำภู","หนองบัวลำภู"), ("อ่างทอง","อ่างทอง"), ("อำนาจเจริญ","อำนาจเจริญ"), ("อุดรธานี","อุดรธานี"), ("อุตรดิตถ์","อุตรดิตถ์"), ("อุทัยธานี","อุทัยธานี"), ("อุบลราชธานี","อุบลราชธานี")
+)
+
 
 class Slide(models.Model):
     caption1 = models.CharField(max_length=100)
@@ -39,6 +44,7 @@ class Category(models.Model):
     slug = models.SlugField()
     description = models.TextField()
     image = models.ImageField()
+    banner = models.ImageField(null=True)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
@@ -157,11 +163,14 @@ class BillingAddress(models.Model):
                              on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50, null=True)
     last_name = models.CharField(max_length=50, null=True)
-    phone_number = models.IntegerField(max_length=10, null=True)
+    phone_number = models.CharField(max_length=10, null=True)
     street_address = models.CharField(max_length=100, null=True)
     apartment_address = models.CharField(max_length=100)
     country = CountryField(multiple=False)
-    zip = models.IntegerField(max_length=5)
+    province = models.CharField(max_length=50, choices = PROVINCE_CHOICES,default = '1')
+    # amphur = models.CharField(choices=
+    # tambol = models.CharField(choices=
+    zip = models.CharField(max_length=5)
     address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
     default = models.BooleanField(default=False)
 
