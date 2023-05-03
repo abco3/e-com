@@ -143,7 +143,6 @@ class ItemDetailView(DetailView):
             raise Http404("Item does not exist")
 
 
-
 # class CategoryView(DetailView):
 #     model = Category
 #     template_name = "category.html"
