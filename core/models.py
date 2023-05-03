@@ -133,6 +133,7 @@ class Order(models.Model):
         'Coupon', on_delete=models.SET_NULL, blank=True, null=True)
     being_delivered = models.BooleanField(default=False)
     received = models.BooleanField(default=False)
+    reciept = models.FileField(upload_to='reciept', null=True)
     refund_requested = models.BooleanField(default=False)
     refund_granted = models.BooleanField(default=False)
 
@@ -185,7 +186,6 @@ class Payment(models.Model):
                              on_delete=models.SET_NULL, blank=True, null=True)
     amount = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    reciept = models.ImageField(upload_to='reciepts', null=True)
 
     def __str__(self):
         return self.user.username

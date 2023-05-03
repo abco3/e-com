@@ -23,7 +23,8 @@ class OrderAdmin(admin.ModelAdmin):
                     'shipping_address',
                     'billing_address',
                     'payment',
-                    'coupon'
+                    'coupon',
+                    'reciept'
                     ]
     list_display_links = [
         'user',
