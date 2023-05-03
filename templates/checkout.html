@@ -355,13 +355,19 @@
    {{ form.reciept.label }}: {{ form.reciept }}
   </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Comfirm Order</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="confirmOrder">Comfirm Order</button>
       </form>
     </div>
 
     {% include "order_snippet.html" %}
 
   </div>
+  <script>
+    function confirmOrder() {
+      // Your code to confirm the order
+      alert('Your order has been confirmed!');
+    }
+    </script>
 <!-- 
   <footer class="my-5 pt-5 text-muted text-center text-small">
     <p class="mb-1">&copy; 2017-2019 Company Name</p>
