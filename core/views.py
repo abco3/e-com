@@ -10,7 +10,8 @@ from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm, MobilePhoneForm
 from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon, Refund, Category, MobilePhone
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 import random
@@ -340,8 +341,6 @@ class CheckoutView(View):
 #         messages.info(request, "Item was added to your cart.")
 #     return redirect("core:order-summary")
 
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 
 @login_required
 def add_to_cart(request, slug):
