@@ -4,6 +4,7 @@ from django.db.models import Sum
 from django.shortcuts import reverse
 
 
+
 # Create your models here.
 CATEGORY_CHOICES = (
     ('SB', 'Shirts And Blouses'),
@@ -184,6 +185,7 @@ class Payment(models.Model):
                              on_delete=models.SET_NULL, blank=True, null=True)
     amount = models.FloatField()
     timestamp = models.DateTimeField(auto_now_add=True)
+    reciept = models.ImageField(upload_to='reciepts', null=True)
 
     def __str__(self):
         return self.user.username
