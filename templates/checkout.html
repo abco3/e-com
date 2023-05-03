@@ -78,7 +78,7 @@
         <div class="mb-3">
           <label>จังหวัด</label>
             <select name="province" placeholder="กรุณาระบุจังหวัด" id="province" required="required" class="form-control" required data-validation-required-message="กรุณาระบุจังหวัด" >
-              <!-- <option value="">กรุณาระบุจังหวัด</option> -->
+              <option value="">กรุณาระบุจังหวัด</option>
               <option value="กระบี่">กระบี่</option>
               <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
               <option value="กาญจนบุรี">กาญจนบุรี</option>
@@ -351,7 +351,11 @@
       });
     });
   </script>
-  
+   
+   <h4>Upload reciept</h4>
+   {{ form.reciept.label }}: {{ form.reciept }}
+   <h4>Confirm payment</h4>
+   <div>Press submit to finish payment: <button type="submit">Submit</button></div>
         <hr class="mb-4">
         <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
       </form>
