@@ -172,6 +172,8 @@ class CategoryView(View):
     #     return render(request, 'select_mobile_phone.html', {'form': form})
 
 
+from django.shortcuts import redirect
+
 class CheckoutView(View):
     def get(self, *args, **kwargs):
         try:
@@ -217,20 +219,25 @@ class CheckoutView(View):
                 )
                 billing_address.save()
                 order.billing_address = billing_address
-                order.save()
+                order.save() 
+                # Return a redirect response to the order summary page
+                return redirect('core:order-summary')
+            else:
+                messages.warning(self.request, "Invalid form data")
+                # Return a response to render the same checkout page with errors shown
+                context = {
+                    'form': form,
+                    'couponform': CouponForm(),
+                    'order': order,
+                    'DISPLAY_COUPON_FORM': True
+                }
+                return render(self.request, "checkout.html", context)
 
-                # add redirect to the selected payment option
-                if payment_option == 'S':
-                    return redirect('core:payment', payment_option='stripe')
-                elif payment_option == 'P':
-                    return redirect('core:payment', payment_option='paypal')
-                else:
-                    messages.warning(
-                        self.request, "Invalid payment option select")
-                    return redirect('core:checkout')
         except ObjectDoesNotExist:
-            messages.error(self.request, "You do not have an active order")
-            return redirect("core:order-summary")
+            messages.warning(self.request, "You do not have an active order")
+            # Return a redirect response back to the checkout page
+            return redirect("core:checkout")
+
 
 
 # def home(request):
