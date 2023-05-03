@@ -53,13 +53,13 @@ class RefundForm(forms.Form):
     email = forms.EmailField()
 
     from django import forms
-from .models import MobilePhone
+# from .models import MobilePhone
 
-class MobilePhoneForm(forms.ModelForm):
-    class Meta:
-        model = MobilePhone
-        fields = ['model']
-        widgets = {
-            'model': forms.Select(attrs={'class': 'form-control'}),
-        }
+# class MobilePhoneForm(forms.ModelForm):
+#     class Meta:
+#         model = MobilePhone
+#         fields = ['model']
+#         widgets = {
+#             'model': forms.Select(attrs={'class': 'form-control'}),
+#         }
 

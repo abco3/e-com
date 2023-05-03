@@ -65,13 +65,26 @@
 			</p>
 
 			<!--  -->
+			<div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
+				<h4 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+					Description
+					<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+					<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+				</h4>
+
+				<div class="dropdown-content dis-none p-t-15 p-b-23">
+					<p class="s-text8">
+						{{ object.description_long }}
+					</p>
+				</div>
+			</div>
 			<div class="p-t-33 p-b-60">
 				<div class="flex-m flex-w p-b-10">
 					<div class="s-text15 w-size15 t-center">
-						Model
+						<p> Model : {{ category_model }} </p>
 					</div>
 
-					<div class="rs2-select2 rs3-select2 w-size16">
+					<!-- <div class="rs2-select2 rs3-select2 w-size16">
 						<select class="form-control" name="size">
 							<option>Choose an option</option>
 							<option>13</option>
@@ -79,7 +92,7 @@
 							<option>13 pro</option>
 							<option>XR</option>
 						</select>
-					</div>
+					</div> -->
 					<!-- <div>
 					<form method="post">
 						{% csrf_token %}

@@ -7,8 +7,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
 from django.utils import timezone
-from .forms import CheckoutForm, CouponForm, RefundForm, MobilePhoneForm
-from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon, Refund, Category, MobilePhone
+from .forms import CheckoutForm, CouponForm, RefundForm
+from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon, Refund, Category
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
@@ -154,21 +154,12 @@ class CategoryView(View):
         context = {
             'object_list': item,
             'category_title': category,
+            'category_model': category.model,
             'category_description': category.description,
             'category_image': category.image,
             'category_banner' : category.banner
         }
         return render(self.request, "category.html", context)
-    
-    # def select_mobile_phone(request):
-    #     if request.method == 'POST':
-    #         form = MobilePhoneForm(request.POST)
-    #         if form.is_valid():
-    #             selected_model = form.cleaned_data['model']
-    #             # Do something with the selected model, such as save it to a database
-    #     else:
-    #         form = MobilePhoneForm()
-    #     return render(request, 'select_mobile_phone.html', {'form': form})
 
 
 class CheckoutView(View):
