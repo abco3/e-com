@@ -197,7 +197,6 @@ class CheckoutView(View):
             print(self.request.POST)
             if form.is_valid():
                 street_address = form.cleaned_data.get('street_address')
-                country = form.cleaned_data.get('country')
                 zip = form.cleaned_data.get('zip')
                 province = form.cleaned_data.get('province')
                 amphur = form.cleaned_data.get('amphur')
@@ -206,7 +205,7 @@ class CheckoutView(View):
                 # same_shipping_address = form.cleaned_data.get(
                 #     'same_shipping_address')
                 # save_info = form.cleaned_data.get('save_info')
-                payment_option = form.cleaned_data.get('payment_option')
+                # payment_option = form.cleaned_data.get('payment_option')
                 billing_address = BillingAddress(
                     user=self.request.user,
                     street_address=street_address,

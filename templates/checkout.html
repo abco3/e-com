@@ -59,20 +59,32 @@
           <label for="">ชื่อ</label>
           {{ form.first_name }}
         </div>
+        <div class="invalid-feedback">
+          กรุณาระบุชื่อ
+        </div>
 
         <div class="mb-3">
           <label for="">นามสกุล</label>
           {{ form.last_name }}
+        </div>
+        <div class="invalid-feedback">
+          กรุณาระบุนามสกุล
         </div>
 
         <div class="mb-3">
           <label for="08xxxxxxxx">เบอร์โทรศัพท์มือถือ</label>
           {{ form.phone_number }}
         </div>
+        <div class="invalid-feedback">
+          กรุณาระบุหมายเลขโทรศัพท์ 10 หลัก
+        </div>
 
         <div class="mb-3">
           <label for="address">ที่อยู่</label>
           {{ form.street_address }}
+        </div>
+        <div class="invalid-feedback">
+          กรุณาระบุที่อยู่
         </div>
 
         <div class="mb-3">
@@ -158,23 +170,32 @@
               <option value="อุบลราชธานี">อุบลราชธานี</option>
           </select>
         </div>
+        <div class="invalid-feedback">
+          กรุณาระบุจังหวัด
+        </div>
         
         <div class="row">
           <div class="col-md-4 mb-3">
           <label>อำเภอ/เขต</label>
           <input type="text" list="dist" class="form-control" id="district" name="district" placeholder="อำเภอ">
         </div>
+        <div class="invalid-feedback">
+          กรุณาระบุอำเภอ
+        </div>
     
       <div class="col-md-4 mb-3">
         <label>ตำบล/แขวง</label>
         <input type="text" list="subdist" class="form-control" id="subdistrict" name="subdistrict" placeholder="ตำบล">
+      </div>
+      <div class="invalid-feedback">
+        กรุณาระบุตำบล
       </div>
 
       <div class="col-md-4 mb-3">
         <label for="zip">รหัสไปรษณีย์</label>
         {{ form.zip }}
         <div class="invalid-feedback">
-          Zip code required.
+          กรุณาระบุรหัสไปรษณีย์
         </div>
       </div>
     </div>
@@ -353,6 +374,9 @@
   </script>
   <div>
    {{ form.reciept.label }}: {{ form.reciept }}
+  </div>
+  <div class="invalid-feedback">
+    กรุณาอัพโหลดสลิปโอนเงิน
   </div>
         <hr class="mb-4">
         <button class="btn btn-primary btn-lg btn-block" type="submit" onclick="confirmOrder">Comfirm Order</button>
