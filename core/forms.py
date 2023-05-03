@@ -33,9 +33,9 @@ class CheckoutForm(forms.Form):
     }))
     same_shipping_address = forms.BooleanField(required=False)
     save_info = forms.BooleanField(required=False)
-    payment_option = forms.ChoiceField(
-        widget=forms.RadioSelect, choices=PAYMENT_CHOICES)
-    reciept = forms.FileField()
+    # payment_option = forms.ChoiceField(
+    #     widget=forms.RadioSelect, choices=PAYMENT_CHOICES)
+    reciept = forms.FileField(required=True)
 
 
 class CouponForm(forms.Form):
