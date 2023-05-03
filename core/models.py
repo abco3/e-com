@@ -29,7 +29,7 @@ PROVINCE_CHOICES = (
 )
 
 MODEL_CHOICES = (
-    ('iPhone 11', 'iPhone 11'), ('iPhone 11 pro', 'iPhone 11 pro')
+    ('iPhone 12', 'iPhone 12'), ('iPhone 12 mini', 'iPhone 12 mini'), ('iPhone 12 Pro', 'iPhone 12 Pro'), ('iPhone 12 Pro Max', 'iPhone 12 Pro Max'), ('iPhone 13', 'iPhone 13'), ('iPhone 13 mini', 'iPhone 13 mini'), ('iPhone 13 Pro', 'iPhone 13 Pro'), ('iPhone 13 Pro Max', 'iPhone 13 Pro Max'), ('iPhone 14', 'iPhone 14'), ('iPhone 14 Plus', 'iPhone 14 Plus'), ('iPhone 14 Pro', 'iPhone 14 Pro'), ('iPhone 14 Pro Max', 'iPhone 14 Pro Max')
 )
 
 class Slide(models.Model):
@@ -45,7 +45,7 @@ class Slide(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField()
-    model = models.CharField(max_length=50, null=True)
+    model = models.CharField(choices=MODEL_CHOICES, max_length=50, null=True)
     description = models.TextField()
     image = models.ImageField()
     banner = models.ImageField(null=True)

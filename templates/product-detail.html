@@ -65,34 +65,39 @@
 			</p>
 
 			<!--  -->
-			<div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
-				<h4 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-					Description
-					<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-					<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-				</h4>
-
-				<div class="dropdown-content dis-none p-t-15 p-b-23">
-					<p class="s-text8">
-						{{ object.description_long }}
-					</p>
-				</div>
-			</div>
-			<div class="p-t-33 p-b-60">
+			<!-- <div class="p-t-33 p-b-60">
 				<div class="flex-m flex-w p-b-10">
 					<div class="s-text15 w-size15 t-center">
-						<p> Model : {{ category_model }} </p>
-					</div>
-
-					<!-- <div class="rs2-select2 rs3-select2 w-size16">
-						<select class="form-control" name="size">
-							<option>Choose an option</option>
-							<option>13</option>
-							<option>13 pro max</option>
-							<option>13 pro</option>
-							<option>XR</option>
-						</select>
+						<p> Model : <select class="form-control" name="{{ category_model }}" ></select></p>
 					</div> -->
+					<div class="p-t-33 p-b-60">
+						<div class="flex-m flex-w p-b-10">
+							<div class="s-text15 w-size15 t-center">
+								<!-- <p> Model :  {{ item.category.model }} </p> -->
+								<p> Model : </p>
+							</div>
+
+						<div class="rs2-select2 rs3-select2 w-size16">
+						<select class="form-control" name=" {{ item.category.model }}">
+							<option>Choose Model</option>
+							<option value="iPhone 12">iPhone 12</option>
+							<option value="iPhone 12 mini">iPhone 12 mini</option>
+							<option value="iPhone 12 Pro">iPhone 12 Pro</option>
+							<option value="iPhone 12 Max">iPhone 12 Pro Max</option>
+							<option value="iPhone 13">iPhone 13</option>
+							<option value="iPhone 13 mini">iPhone 13 mini</option>
+							<option value="iPhone 13 Pro">iPhone 13 Pro</option>
+							<option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
+							<option value="iPhone 14">iPhone 14</option>
+							<option value="iPhone 14 Plus">iPhone 14 Plus</option>
+							<option value="iPhone 14 Pro">iPhone 14 Pro</option>
+							<option value="iPhone 14 Pro Max">iPhone 14 Pro Max</option>
+						</select>
+					</div> 
+					<!-- <div class="p-b-45">
+						<span class="s-text8">Model :  {{ item.category.model }}</span>
+					</div> -->
+
 					<!-- <div>
 					<form method="post">
 						{% csrf_token %}
@@ -130,7 +135,7 @@
 			</div>
 			<br>
 			<div class="p-b-45">
-				<span class="s-text8">Categories: Ipad Case</span>
+				<span class="s-text8">Categories: {{item.category}}</span>
 			</div>
 
 			<!--  -->
