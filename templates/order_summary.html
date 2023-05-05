@@ -12,7 +12,6 @@
             <th scope="col">#</th>
             <th scope="col"></th>
             <th scope="col">Product Name</th>
-            <th scope="col">Model</th>
             <th scope="col">Price</th>
             <th scope="col">Qty</th>
             <th scope="col">Total Price</th>
@@ -27,7 +26,6 @@
             </td>
             <!-- เอาชื่อรุ่นมาใส่ด้วย -->
             <td>{{ order_item.item.title }}</td> 
-            <td> {{ order_item.item.category.model }}</td>
             <td>{{ order_item.item.price }}</td>
             <td>
             	<a href="{% url 'core:remove-single-item-from-cart' order_item.item.slug %}"><i class="fas fa-minus mr-3"></i></a>

@@ -45,7 +45,7 @@ class Slide(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField()
-    model = models.CharField(choices=MODEL_CHOICES, max_length=50, null=True)
+    model = models.CharField(max_length=50, null=True)
     description = models.TextField()
     image = models.ImageField()
     banner = models.ImageField(null=True)

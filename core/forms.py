@@ -8,26 +8,26 @@ PAYMENT_CHOICES = (
 
 
 class CheckoutForm(forms.Form):
-    first_name = forms.CharField(widget=forms.TextInput(attrs={
+    first_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'placeholder': 'ชื่อ',
         'class': 'form-control'
     }))
-    last_name = forms.CharField(widget=forms.TextInput(attrs={
+    last_name = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'placeholder': 'นามสกุล',
         'class': 'form-control'
     }))
-    phone_number = forms.CharField(widget=forms.TextInput(attrs={
+    phone_number = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'placeholder': '08xxxxxxxx',
         'class': 'form-control'
     }))
-    street_address = forms.CharField(widget=forms.TextInput(attrs={
+    street_address = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'placeholder': '1234 หมู่ x ถนน xxxx',
         'class': 'form-control'
     }))
-    province = forms.CharField(widget=forms.TextInput(attrs={
+    province = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'class': 'custom-select d-block w-100'
     }))
-    zip = forms.CharField(widget=forms.TextInput(attrs={
+    zip = forms.CharField(required=True, widget=forms.TextInput(attrs={
         'placeholder': '1xxxx',
         'class': 'form-control'
     }))
@@ -55,11 +55,14 @@ class RefundForm(forms.Form):
     from django import forms
 # from .models import MobilePhone
 
-# class MobilePhoneForm(forms.ModelForm):
-#     class Meta:
-#         model = MobilePhone
-#         fields = ['model']
-#         widgets = {
-#             'model': forms.Select(attrs={'class': 'form-control'}),
-#         }
-
+class MobilePhoneForm(forms.ModelForm):
+    # class Meta:
+    #     model = MobilePhone
+    #     fields = ['model']
+    #     widgets = {
+    #         'model': forms.Select(attrs={'class': 'form-control'}),
+    #     }
+ model = forms.CharField(required=True, widget=forms.TextInput(attrs={
+        'placeholder': 'ชื่อ',
+        'class': 'form-control'
+    }))
